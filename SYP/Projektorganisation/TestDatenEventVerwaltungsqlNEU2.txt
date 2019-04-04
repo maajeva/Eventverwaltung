@@ -1,0 +1,76 @@
+Drop Table veranstaltung cascade constraints;
+Drop Table veranstalter cascade constraints;
+Drop Table teilnehmer cascade constraints;
+Drop Table tBesuchtV cascade constraints;
+
+create table veranstaltung(
+id number,
+bezeichnung varchar2(50),
+teilnehmerAnzahl number,
+preis number,
+datumVon date,
+datumBis date,
+treffOrt varchar2(50),
+constraint pk_veranstaltung primary key(id)
+);
+
+create table veranstalter(
+id number,
+firmenname varchar2(50),
+vorname varchar2(50),
+nachname varchar2(50),
+benutzername varchar(50),
+passwort varchar2(50),
+email varchar2(50),
+telnr number,
+constraint pk_veranstalter primary key(id)
+);
+
+create table teilnehmer(
+id number,
+vorname varchar2(50),
+nachname varchar2(50),
+benutzername varchar(50),
+passwort varchar2(50),
+email varchar2(50),
+telnr number,
+constraint pk_teilnehmer primary key(id)
+);
+
+create table tBesuchtV(
+idTeilnehmer number,
+idVeranstaltung number,
+constraint pk_tBesuchtV primary key(idTeilnehmer, idVeranstaltung),
+constraint fk_tBesuchtV_idTeilnehmer foreign key(idTeilnehmer) references teilnehmer(id),
+constraint fk_tBesuchtV_idVeranstaltung foreign key(idVeranstaltung) references veranstaltung(id)
+);
+
+Insert Into veranstaltung values(1,'Zelten an der Gail',25,20,TO_DATE('22/April/2011' ,'DD/MON/YY'),TO_DATE('30/April/2011' ,'DD/MON/YY'), 'HTL-Villach');
+Insert Into veranstaltung values(2,'Badesalzmesse Wien',25,25,TO_DATE('01/Mai/2011' ,'DD/MON/YY'),TO_DATE('25/Mai/2011' ,'DD/MON/YY'), 'Wiener Marktplatz');
+Insert Into veranstaltung values(3,'Firmenwanderung am Römerweg',25,45,TO_DATE('01/Mai/2011' ,'DD/MON/YY'),TO_DATE('8/Mai/2011' ,'DD/MON/YY'), 'KTS');
+Insert Into veranstaltung values(4,'Spielprogrammierung in Android',25,45,TO_DATE('01/Juni/2011' ,'DD/MON/YY'),TO_DATE('31/Juli/2011' ,'DD/MON/YY'), 'HTL-Villach');
+Insert Into veranstaltung values(5,'Französichkurs mit Professor Leopold',25,45,TO_DATE('26/April/2011' ,'DD/MON/YY'),TO_DATE('30/April/2011' ,'DD/MON/YY'), 'HTL-Villach');
+
+Insert into veranstalter values(1,'FlashOfficeSolutionsGmbh', 'Lukas', 'Kerth', 'kethl', 'bleibergTatüTata','kerthl@gmail.com', 0664123456);
+Insert into veranstalter values(2,'PinkItBadeSalz', 'Daniele', 'Guggenberger', 'guggendan', 'daniguggi23','guggendan@gmail.com', 0650123456);
+Insert into veranstalter values(3,'ELbeAllaHTL', 'Cheda', 'Maajeva', 'chedmaj', 'worldmusicdog6','chedmaj@gmx.at', 067654321);
+Insert into veranstalter values(4,'Android', 'Susi', 'Högel', 'susHö', 'androidCanBeFun','susHö@gmx.at', 0664567894);
+Insert into veranstalter values(5,'CampenAllaDavidson', 'Josh', 'Franz', 'josFr', 'campenMitUnsMachtSpaß','josFr@gmx.at', 0664567894);
+
+Insert into teilnehmer values(1,'Andrea', 'Djedovic', 'djedovia', 'unknownuserIsAndrea', 'djedovia@gmx.at', 0699786587);
+Insert into teilnehmer values(2,'Melisa', 'Dizdarevic', 'dizdam', 'strawberrie1234', 'dizdam@gmx.at', 06765432178);
+Insert into teilnehmer values(3,'Laurin', 'Kogler', 'logler', 'ichBinLaurinsPasswd4561', 'logler@gmail.com', 0644568231);
+Insert into teilnehmer values(4,'Sarah', 'Berger', 'saberg', 'bananadogLui', 'saberg@gmail.com', 0650234567);
+Insert into teilnehmer values(5,'Sebastian', 'Macuh', 'sebma', 'liverpoolVSbayern09', 'sebma@gmx.at', 0699778866);
+
+Insert into tBesuchtV values(1,2);
+Insert into tBesuchtV values(1,1);
+Insert into tBesuchtV values(2,3);
+Insert into tBesuchtV values(2,2);
+Insert into tBesuchtV values(3,1);
+Insert into tBesuchtV values(3,3);
+Insert into tBesuchtV values(4,1);
+Insert into tBesuchtV values(4,2);
+
+commit;
+
