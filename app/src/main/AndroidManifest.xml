@@ -23,6 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".HB_MainActivity" />
         <activity android:name=".Admin_UI" />
         <activity android:name=".User_UI" />
         <activity android:name=".event_view" />
