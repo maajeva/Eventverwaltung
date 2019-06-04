@@ -1,6 +1,7 @@
 package com.example.kampitschluca.proj_muh;
 
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -111,6 +112,8 @@ public class HB_MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_newEvent) {
 
         } else if (id == R.id.nav_profile) {
+            Intent intent = new Intent(HB_MainActivity.this, MainActivity.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_share) {
 
