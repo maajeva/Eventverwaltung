@@ -85,14 +85,12 @@ public class Veranstaltung {
 
     @Override
     public String toString() {
-        return "Veranstaltung{" +
-                "id=" + id +
-                ", bezeichnung='" + bezeichnung + '\'' +
-                ", teilnehmeranzahl=" + teilnehmeranzahl +
-                ", preis=" + preis +
-                ", datumVon=" + datumVon +
-                ", datumBis=" + datumBis +
-                ", treffOrt='" + treffOrt + '\'' +
+        return "Bezeichnung='" + bezeichnung + '\'' +
+                ", Max. Teilnehmer=" + teilnehmeranzahl +
+                ", Preis=" + preis +
+                ", Von=" + datumVon +
+                ", Bis=" + datumBis +
+                ", Treffort='" + treffOrt + '\'' +
                 '}';
     }
 }
