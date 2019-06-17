@@ -7,7 +7,9 @@ preis number,
 datumVon date,
 datumBis date,
 treffOrt varchar2(50),
+veranstalter_id number,
 
+constraint fk_Veranstalter foreign key(verasntalter_id) REFERENCES veranstalter(id),
 constraint pk_veranstaltung primary key(id)
 );
 
