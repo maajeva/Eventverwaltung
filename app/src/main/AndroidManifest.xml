@@ -29,6 +29,8 @@
         <activity android:name=".event_view" />
         <activity android:name=".Register"></activity>
         <activity android:name=".MainActivity"></activity>
+        <activity android:name=".Admin_Menue"></activity>
+        <activity android:name=".Admin_myEvents"></activity>
     </application>
 
 </manifest>

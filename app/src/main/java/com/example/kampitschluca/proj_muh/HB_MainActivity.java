@@ -109,7 +109,9 @@ public class HB_MainActivity extends AppCompatActivity
             // Handle the camera action
         } else if (id == R.id.nav_notification) {
 
-        } else if (id == R.id.nav_newEvent) {
+        } else if (id == R.id.nav_admin) {
+            Intent intent = new Intent(HB_MainActivity.this, Admin_Menue.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_profile) {
             Intent intent = new Intent(HB_MainActivity.this, MainActivity.class);

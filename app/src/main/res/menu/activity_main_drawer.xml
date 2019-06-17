@@ -13,13 +13,13 @@
             android:icon="@android:drawable/ic_lock_idle_alarm"
             android:title="Notification Center" />
         <item
-            android:id="@+id/nav_newEvent"
-            android:icon="@android:drawable/btn_plus"
-            android:title="Neues Event" />
-        <item
             android:id="@+id/nav_profile"
             android:icon="@drawable/ic_menu_manage"
             android:title="Profil" />
+        <item
+            android:id="@+id/nav_admin"
+            android:icon="@android:drawable/btn_plus"
+            android:title="Admin Modus" />
     </group>
 
     <item android:title="Communicate">
