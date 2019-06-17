@@ -1,5 +1,6 @@
 package com.example.kampitschluca.proj_muh;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -7,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -39,11 +41,22 @@ public class HB_AllEventsFragment extends Fragment {
         final ListView v= getView().findViewById(R.id.listView);
         ArrayAdapter<Veranstaltung> adapter;
         ArrayList<Veranstaltung> arrayList=new ArrayList<Veranstaltung>();
-        arrayList.add(new Veranstaltung(1,"Schimmen",15,10,new Date(2019,10,01),new Date(2019,10,02),"Villach"));
-        arrayList.add(new Veranstaltung(2,"Radeln",15,10,new Date(2019,10,06),new Date(2019,10,8),"Klagenfurt"));
+        arrayList.add(new Veranstaltung(1,"Schimmen",15,10,new Date(119,10,01),new Date(119,10,02),"Villach"));
+        arrayList.add(new Veranstaltung(2,"Radeln",15,10,new Date(119,10,06),new Date(119,10,8),"Klagenfurt"));
         adapter = new ArrayAdapter<Veranstaltung>(view.getContext(),android.R.layout.simple_list_item_1, arrayList);
 
         v.setAdapter(adapter);
+
+        v.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+                Veranstaltung s=(Veranstaltung) v.getItemAtPosition(position);
+                Intent intent = new Intent(getActivity(), AllEvents_Anmelden.class);
+                intent.putExtra("object", s);
+                startActivity(intent);
+            }
+        });
+
         getActivity().setTitle("Alle Events");
 
     }

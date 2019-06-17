@@ -1,6 +1,7 @@
 package com.example.kampitschluca.proj_muh;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Veranstaltung implements Serializable {
@@ -89,9 +90,19 @@ public class Veranstaltung implements Serializable {
         return "Bezeichnung='" + bezeichnung + '\'' +
                 ", Max. Teilnehmer=" + teilnehmeranzahl +
                 ", Preis=" + preis +
-                ", Von=" + datumVon +
-                ", Bis=" + datumBis +
+                ", Von=" + getDateVonAsString() +
+                ", Bis=" + getDateBisAsString() +
                 ", Treffort='" + treffOrt + '\'' +
                 '}';
+    }
+
+    public String getDateVonAsString() {
+        SimpleDateFormat d=new SimpleDateFormat("dd.MM.yyyy");
+        return d.format(datumVon);
+    }
+
+    public String getDateBisAsString() {
+        SimpleDateFormat d=new SimpleDateFormat("dd.MM.yyyy");
+        return d.format(datumBis);
     }
 }

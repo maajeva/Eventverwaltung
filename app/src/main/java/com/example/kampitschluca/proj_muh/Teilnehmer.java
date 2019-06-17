@@ -7,11 +7,11 @@ public class Teilnehmer {
     private String benutzername;
     private String passwort;
     private String email;
-    private int telNr;
+    private String telNr;
     //private static ObservableList<Veranstaltung> veranstaltungen = null;
 
 
-    public Teilnehmer(int id, String vorname, String nachname, String benutzername, String passwort, String email, int telNr) {
+    public Teilnehmer(int id, String vorname, String nachname, String benutzername, String passwort, String email, String telNr) {
         this.id = id;
         this.vorname = vorname;
         this.nachname = nachname;
@@ -72,11 +72,11 @@ public class Teilnehmer {
         this.email = email;
     }
 
-    public int getTelNr() {
+    public String getTelNr() {
         return telNr;
     }
 
-    public void setTelNr(int telNr) {
+    public void setTelNr(String telNr) {
         this.telNr = telNr;
     }
 

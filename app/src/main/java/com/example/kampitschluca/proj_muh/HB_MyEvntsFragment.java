@@ -34,22 +34,22 @@ public class HB_MyEvntsFragment extends Fragment {
         final ListView v= getView().findViewById(R.id.listView);
         ArrayAdapter<Veranstaltung> adapter;
         ArrayList<Veranstaltung> arrayList=new ArrayList<Veranstaltung>();
-        arrayList.add(new Veranstaltung(1,"Schwimmen",15,10,new Date(2019,10,01),new Date(2019,10,02),"Villach"));
+        arrayList.add(new Veranstaltung(1,"Schwimmen",15,10,new Date(119,10,01),new Date(119,10,02),"Villach"));
         adapter = new ArrayAdapter<Veranstaltung>(view.getContext(),android.R.layout.simple_list_item_1, arrayList);
 
 
 
         v.setAdapter(adapter);
 
-        /*v.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        v.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
                 Veranstaltung s=(Veranstaltung) v.getItemAtPosition(position);
-                Intent intent = new Intent( HB_MyEvntsFragment.this, ShowDetails.class);
+                Intent intent = new Intent(getActivity(), MyEventsDetails.class);
                 intent.putExtra("object", s);
                 startActivity(intent);
             }
-        });*/
+        });
         getActivity().setTitle("Meine Events");
     }
 }
