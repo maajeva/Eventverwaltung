@@ -42,6 +42,13 @@ public class Admin_DetailsEvents extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Button save=findViewById(R.id.save);
+        save.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
 }

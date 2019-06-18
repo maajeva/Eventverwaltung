@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -25,6 +26,24 @@ public class Admin_ShowTeilnehmer extends AppCompatActivity {
         adapter = new ArrayAdapter<Teilnehmer>(this,android.R.layout.simple_list_item_1, arrayList);
 
         v.setAdapter(adapter);
+
+        Button b=findViewById(R.id.addTeilnehmer);
+        b.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent=new Intent(Admin_ShowTeilnehmer.this,Admin_AddTeilnehmerActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        v.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+                Teilnehmer t=(Teilnehmer) v.getItemAtPosition(position);
+                Intent intent = new Intent(Admin_ShowTeilnehmer.this, Admin_TeilnehmerDetails.class);
+                intent.putExtra("object", t);
+                startActivity(intent);
+            }
+        });
 
 
     }

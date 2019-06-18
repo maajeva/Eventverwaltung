@@ -1,6 +1,8 @@
 package com.example.kampitschluca.proj_muh;
 
-public class Teilnehmer {
+import java.io.Serializable;
+
+public class Teilnehmer implements Serializable {
     private int id;
     private String vorname;
     private String nachname;
@@ -86,8 +88,6 @@ public class Teilnehmer {
                 "id=" + id +
                 ", vorname='" + vorname + '\'' +
                 ", nachname='" + nachname + '\'' +
-                ", benutzername='" + benutzername + '\'' +
-                ", passwort='" + passwort + '\'' +
                 ", email='" + email + '\'' +
                 ", telNr=" + telNr +
                 '}';
